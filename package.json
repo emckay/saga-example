@@ -1,0 +1,55 @@
+{
+  "name": "unit_01_es6_warmup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "node_modules/.bin/webpack",
+    "webpack:watch": "npm run webpack -- --watch",
+    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive",
+    "test:watch": "npm run test -- --watch",
+    "webpack-dev-server": "node_modules/.bin/webpack-dev-server --progress"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.8.0",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
+    "chai": "^3.5.0",
+    "chai-enzyme": "^0.4.2",
+    "cheerio": "^0.20.0",
+    "css-loader": "^0.23.1",
+    "enzyme": "^2.3.0",
+    "mocha": "^2.4.5",
+    "node-sass": "^3.7.0",
+    "react-addons-test-utils": "^15.0.2",
+    "react-hot-loader": "^1.3.0",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ],
+    "plugins": [
+        "transform-object-rest-spread"
+    ]
+  },
+  "dependencies": {
+    "firebase": "^3.1.0",
+    "node-uuid": "^1.4.7",
+    "react": "^15.2.0",
+    "react-dom": "^15.2.0",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.2",
+    "redux-saga": "^0.10.5"
+  }
+}

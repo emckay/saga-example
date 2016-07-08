@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: sans-serif;
+    margin-bottom: 20px;
+}
+
+#app {
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.options {
+    margin-bottom: 20px;
+}
+
+.speech div {
+    display: inline;
+    margin-right: 4px;
+}
+
+button {
+    text-transform: capitalize;
+    margin-right: 10px;
+}
