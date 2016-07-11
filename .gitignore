@@ -2,3 +2,8 @@ node_modules
 build/bundle.js
 build/bundle.js.map
 config.js
+
+dist
+.firebaserc
+database.rules.json
+firebase.json
