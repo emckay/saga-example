@@ -17,7 +17,7 @@ import actions from '../actions';
 
 let database;
 
-const fetchFirebase = (path) => {
+export const fetchFirebase = (path) => {
     if (database === undefined) {
         firebase.initializeApp(firebaseConfig);
         database = firebase.database();
@@ -56,7 +56,7 @@ function* doFetchSpeech() {
 // run this function for each DEAL_TO_PLAYER action
 export function* doPlaySpeech() {
     // get data from the store
-    const displayedPhrases = yield select(selectors.getDisplayedPhrases)
+    const displayedPhrases = yield select(selectors.getDisplayedPhrases);
     const phrases = yield select(selectors.getPhrases);
 
     let displayedCount = displayedPhrases.length;
