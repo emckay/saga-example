@@ -32,7 +32,7 @@ const reset = () => ({
 
 const clearSpeech = () => ({
     type: 'CLEAR_SPEECH',
-})
+});
 
 export default {
     fetchSpeechKeys,

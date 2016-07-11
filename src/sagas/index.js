@@ -1,4 +1,12 @@
-import { put, call, select, fork, take, race, cancel } from 'redux-saga/effects';
+import {
+    put,
+    call,
+    select,
+    fork,
+    take,
+    race,
+} from 'redux-saga/effects';
+
 import { takeLatest, delay } from 'redux-saga';
 
 import firebase from 'firebase';
@@ -11,7 +19,6 @@ let database;
 
 const fetchFirebase = (path) => {
     if (database === undefined) {
-        console.log('init database');
         firebase.initializeApp(firebaseConfig);
         database = firebase.database();
     }
@@ -26,7 +33,7 @@ const fetchFirebase = (path) => {
 };
 
 // run this function for each FETCH_SPEECH_KEYS
-function* doFetchSpeechKeys() {
+export function* doFetchSpeechKeys() {
     // make API call without blocking application
     const data = yield call(fetchFirebase, 'speechKeys');
 
@@ -47,14 +54,15 @@ function* doFetchSpeech() {
 }
 
 // run this function for each DEAL_TO_PLAYER action
-function* doPlaySpeech() {
+export function* doPlaySpeech() {
     // get data from the store
-    const displayedPhrases = yield select(selectors.getDisplayedPhrases);
-    let displayedCount = displayedPhrases.length;
+    const displayedPhrases = yield select(selectors.getDisplayedPhrases)
     const phrases = yield select(selectors.getPhrases);
 
+    let displayedCount = displayedPhrases.length;
+
     // clear the phrases if the speech is complete
-    if (displayedPhrases.length === phrases.length) {
+    if (displayedCount === phrases.length) {
         yield put(actions.clearSpeech());
         displayedCount = 0;
     }
@@ -65,7 +73,7 @@ function* doPlaySpeech() {
         // dispatch an action with the next phrase
         yield put(actions.displayPhrase(nextPhrase));
 
-        // wait a bit before showing next phrase
+        // wait before showing next phrase except after last one
         if (i < phrases.length - 1) {
             yield call(delay, nextPhrase.split(' ').length * 400);
         }

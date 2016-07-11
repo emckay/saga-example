@@ -26,7 +26,7 @@ export default function (state = { }, action) {
         case 'CLEAR_SPEECH':
             return {
                 ...state,
-                displayedPhrases: [ ],
+                displayedPhrases: [],
             };
         case 'RESET':
             return { speechKeys: state.speechKeys };
