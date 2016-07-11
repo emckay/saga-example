@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "webpack": "node_modules/.bin/webpack",
-    "webpack:watch": "npm run webpack -- --watch",
+    "webpack:dev": "node_modules/.bin/webpack --config webpack.config.dev.js",
+    "webpack:prod": "node_modules/.bin/webpack --config webpack.config.prod.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive",
     "test:watch": "npm run test -- --watch",
-    "webpack-dev-server": "node_modules/.bin/webpack-dev-server --progress"
+    "webpack-dev-server": "node_modules/.bin/webpack-dev-server --host 0.0.0.0 --port 8080 --config webpack.config.dev.js"
   },
   "keywords": [],
   "author": "",
