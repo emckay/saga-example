@@ -26,7 +26,9 @@ export const Reenactor = ({ speechKeys, phrases, loading, fetchSpeech, playSpeec
     return (
         <div className="reenactor">
             <h1>React Re-enact</h1>
-            {controls}
+            <div className="options">
+                {controls}
+            </div>
             <Speech phrases={phrases} />
         </div>
     );
