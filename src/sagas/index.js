@@ -53,7 +53,7 @@ function* doFetchSpeech() {
     yield put(actions.fetchedSpeech(data));
 }
 
-// run this function for each DEAL_TO_PLAYER action
+// run this function for each PLAY_SPEECH action
 export function* doPlaySpeech() {
     // get data from the store
     const displayedPhrases = yield select(selectors.getDisplayedPhrases);
